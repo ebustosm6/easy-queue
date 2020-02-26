@@ -1,0 +1,18 @@
+version: "2.1"
+
+services:
+  persistencedb:
+    #image: ${REPOSITORY}/mongo/mongo:${MONGO_TAG}
+    image: mongo:${MONGO_TAG}
+    container_name: persistencedb
+    networks:
+      - eqnetwork
+    ports:
+      - "27017:27017"
+    
+networks:
+    eqnetwork:
+    #ipam:
+    #  driver: default
+    #  config:
+    #    - subnet: 172.28.0.0/16

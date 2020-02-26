@@ -1,0 +1,19 @@
+version: "2.1"
+
+services:
+  eqobjectservice:
+    container_name: eqobjectservice
+    image: eqobject-service:latest
+    environment:
+     - MONGODB_URI=mongodb://persistencedb:27017/
+     - REALTIMEDBUSEAUTH=false
+    ports:
+     - "15000:15000"
+    stdin_open: true
+    external_links:
+     - persistencedb
+    networks:
+    - deploy_eqnetwork
+networks:
+  deploy_eqnetwork:
+    external: true
